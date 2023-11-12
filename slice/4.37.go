@@ -1,0 +1,11 @@
+// Concatena uma patia com a outra
+package main
+
+import "fmt"
+
+func main() {
+	s1 := []int{1, 2}
+	s2 := []int{3, 4}
+
+	fmt.Println(append(s1, s2...))
+}
