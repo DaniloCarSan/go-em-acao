@@ -3,22 +3,23 @@ package main
 import "fmt"
 
 func twoSum(nums []int, target int) []int {
-	var index1, index2 int
 
-	for j, num1 := range nums {
-		for k, num2 := range nums {
-			if r := num1 + num2; r == target {
-				if j != k {
-					index1 = j
-					index2 = k
-					break
-				}
+	subs := map[int]int{}
 
-			}
-		}
+	if len(subs) == 2 {
+		return []int{0, 1}
 	}
 
-	return []int{index1, index2}
+	for i, num := range nums {
+
+		if k, ok := subs[num]; ok && k != i {
+			return []int{k, i}
+		}
+
+		subs[target-num] = i
+	}
+
+	return []int{}
 }
 
 func main() {
